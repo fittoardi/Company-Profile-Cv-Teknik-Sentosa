@@ -1,0 +1,108 @@
+units:
+  - name: home
+    trigger: page
+    trigger_detail: "hash route #/"
+    source_anchors:
+      - path: src/pages/HomePage.tsx
+        line: 15
+    exported_signature:
+      - method: "ReactElement HomePage({ onNavigate: (path: string) => void })"
+        source_loc: src/pages/HomePage.tsx:15
+        stability: must_preserve
+    dynamic_entrypoints: []
+    depends_on: []
+    shared_refs:
+      - module: static-content
+        used_fields: [company, stats, services, certifications, projects, testimonials, images]
+      - module: page-shell
+        used_fields: [PageShell]
+      - module: navigation-ui
+        used_fields: [Button, SectionLabel, PhotoArea, ServiceCard, CertificationBadge, ContactForm]
+
+  - name: about
+    trigger: page
+    trigger_detail: "hash route #/tentang"
+    source_anchors:
+      - path: src/pages/AboutPage.tsx
+        line: 13
+    exported_signature:
+      - method: "ReactElement AboutPage({ onNavigate: (path: string) => void })"
+        source_loc: src/pages/AboutPage.tsx:13
+        stability: must_preserve
+    dynamic_entrypoints: []
+    depends_on: []
+    shared_refs:
+      - module: static-content
+        used_fields: [company, stats, certifications, images]
+      - module: page-shell
+        used_fields: [PageShell]
+      - module: navigation-ui
+        used_fields: [Button, SectionLabel, PhotoArea, CertificationBadge]
+
+  - name: services
+    trigger: page
+    trigger_detail: "hash route #/layanan"
+    source_anchors:
+      - path: src/pages/ServicesPage.tsx
+        line: 21
+    exported_signature:
+      - method: "ReactElement ServicesPage({ onNavigate: (path: string) => void })"
+        source_loc: src/pages/ServicesPage.tsx:21
+        stability: must_preserve
+    dynamic_entrypoints: []
+    depends_on: []
+    shared_refs:
+      - module: static-content
+        used_fields: [company, services, certifications, images]
+      - module: page-shell
+        used_fields: [PageShell]
+      - module: navigation-ui
+        used_fields: [Button, SectionLabel, PhotoArea]
+
+  - name: projects
+    trigger: page
+    trigger_detail: "hash route #/proyek"
+    source_anchors:
+      - path: src/pages/ProjectsPage.tsx
+        line: 13
+    exported_signature:
+      - method: "ReactElement ProjectsPage({ onNavigate: (path: string) => void })"
+        source_loc: src/pages/ProjectsPage.tsx:13
+        stability: must_preserve
+    dynamic_entrypoints: []
+    depends_on: []
+    shared_refs:
+      - module: static-content
+        used_fields: [company, projects, sectors]
+      - module: page-shell
+        used_fields: [PageShell]
+      - module: navigation-ui
+        used_fields: [Button, SectionLabel, PhotoArea]
+
+  - name: contact
+    trigger: page
+    trigger_detail: "hash route #/kontak"
+    source_anchors:
+      - path: src/pages/ContactPage.tsx
+        line: 7
+      - path: src/components/ContactForm.tsx
+        line: 34
+    exported_signature:
+      - method: "ReactElement ContactPage()"
+        source_loc: src/pages/ContactPage.tsx:7
+        stability: must_preserve
+      - method: "ReactElement ContactForm({ compact?: boolean })"
+        source_loc: src/components/ContactForm.tsx:34
+        stability: must_preserve
+    dynamic_entrypoints: []
+    depends_on: []
+    shared_refs:
+      - module: static-content
+        used_fields: [company]
+      - module: page-shell
+        used_fields: [PageShell]
+      - module: lead-persistence
+        used_fields: [supabase, Lead]
+      - module: navigation-ui
+        used_fields: [SectionLabel, Button]
+

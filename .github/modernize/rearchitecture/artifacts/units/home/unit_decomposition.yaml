@@ -1,0 +1,8 @@
+unit: home
+commit: false
+candidate_splits:
+  - id: src/pages/HomePage.tsx:15-302
+    drivers: [concern_split]
+    rationale: "The page combines hero, company preview, services, certifications, projects, testimonials, and contact CTA sections that could evolve independently."
+    source_slice: {file: src/pages/HomePage.tsx, lines: [15, 302]}
+

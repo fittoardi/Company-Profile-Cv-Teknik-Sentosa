@@ -1,0 +1,10 @@
+unit: contact
+bindings:
+  - {type: route-declaration, name: "#/kontak", source_loc: src/App.tsx:16, target: ContactPage, must_appear_in_target: true, notes: "Hash route dispatch in App."}
+  - {type: route-declaration, name: "public.leads INSERT", source_loc: src/components/ContactForm.tsx:65, target: "Supabase client", must_appear_in_target: true, notes: "Uses anonymous Supabase client and RLS insert policy."}
+runtime_config:
+  - {key: VITE_SUPABASE_URL, source_loc: src/lib/supabase.ts:3, source: env, default_value: "", must_appear_in_target: true, notes: "Supabase project URL."}
+  - {key: VITE_SUPABASE_ANON_KEY, source_loc: src/lib/supabase.ts:4, source: env, default_value: "", must_appear_in_target: true, notes: "Publishable browser key."}
+  - {key: RESEND_API_KEY, source_loc: supabase/functions/lead-notification/index.ts:25, source: env, default_value: "", must_appear_in_target: true, notes: "Edge Function email provider credential; must remain secret."}
+  - {key: TO_EMAIL, source_loc: supabase/functions/lead-notification/index.ts:26, source: env, default_value: "goodhooman061202@gmail.com", must_appear_in_target: true, notes: "Notification recipient."}
+  - {key: FROM_EMAIL, source_loc: supabase/functions/lead-notification/index.ts:27, source: env, default_value: "noreply@sentrateknik.co.id", must_appear_in_target: true, notes: "Notification sender."}

@@ -1,0 +1,4 @@
+unit: home
+bindings:
+  - {type: route-declaration, name: "#/", source_loc: src/App.tsx:20, target: HomePage, must_appear_in_target: true, notes: "Default route renders HomePage."}
+runtime_config: []

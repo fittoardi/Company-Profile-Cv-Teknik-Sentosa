@@ -1,0 +1,8 @@
+unit: services
+commit: false
+candidate_splits:
+  - id: src/pages/ServicesPage.tsx:21-127
+    drivers: [concern_split]
+    rationale: "Service detail cards, process timeline, certification section, and CTA are independent presentation regions."
+    source_slice: {file: src/pages/ServicesPage.tsx, lines: [21, 127]}
+

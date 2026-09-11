@@ -16,7 +16,19 @@ CREATE POLICY "anon_insert_lead"
 
 -- 3. Enable realtime for leads table (optional, for admin dashboard)
 ALTER TABLE "public"."leads" REPLICA IDENTITY FULL;
-ALTER PUBLICATION supabase_realtime ADD TABLE public.leads;
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1
+    FROM pg_publication_tables
+    WHERE pubname = 'supabase_realtime'
+      AND schemaname = 'public'
+      AND tablename = 'leads'
+  ) THEN
+    ALTER PUBLICATION supabase_realtime ADD TABLE public.leads;
+  END IF;
+END
+$$;
 
 -- 4. Webhook function: calls Edge Function after INSERT
 CREATE OR REPLACE FUNCTION public.notify_lead_insert()
@@ -24,11 +36,10 @@ RETURNS TRIGGER AS $$
 DECLARE
   supabase_url text := 'https://vdbysblozdajrcerirxe.supabase.co';
   edge_function_url text := supabase_url || '/functions/v1/lead-notification';
-  service_role_key text := current_setting('vault.supabase_service_role_key', true);
-  payload json;
+  payload jsonb;
 BEGIN
-  payload := json_build_object(
-    'record', json_build_object(
+  payload := jsonb_build_object(
+    'record', jsonb_build_object(
       'id', NEW.id,
       'name', NEW.name,
       'company', NEW.company,
@@ -43,13 +54,9 @@ BEGIN
     )
   );
 
-  PERFORM net.http_request(
+  PERFORM net.http_post(
     url := edge_function_url,
-    method := 'POST',
-    headers := json_build_object(
-      'Content-Type', 'application/json',
-      'Authorization', 'Bearer ' || service_role_key
-    ),
+    headers := jsonb_build_object('Content-Type', 'application/json'),
     body := payload
   );
 

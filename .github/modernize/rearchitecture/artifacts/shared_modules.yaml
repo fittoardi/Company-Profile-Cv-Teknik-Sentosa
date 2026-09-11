@@ -1,0 +1,58 @@
+modules:
+  - name: static-content
+    kind: config
+    source_loc: src/lib/constants.ts:6
+    used_by_units: [home, about, services, projects, contact]
+    fields:
+      - {name: company, type: "CompanyConfig"}
+      - {name: stats, type: "Stat[]"}
+      - {name: services, type: "Service[]"}
+      - {name: certifications, type: "Certification[]"}
+      - {name: projects, type: "Project[]"}
+      - {name: testimonials, type: "Testimonial[]"}
+      - {name: sectors, type: "readonly string[]"}
+      - {name: images, type: "ImageMap"}
+    god_class: false
+    split_candidate: false
+    migration_strategy: copy
+    notes: "Single static content registry consumed by all page units."
+
+  - name: page-shell
+    kind: base-class
+    source_loc: src/components/PageShell.tsx:9
+    used_by_units: [home, about, services, projects, contact]
+    fields:
+      - {name: PageShell, type: "React component"}
+    god_class: false
+    split_candidate: false
+    migration_strategy: copy
+    notes: "Sets document title and provides the page main wrapper."
+
+  - name: navigation-ui
+    kind: utility
+    source_loc: src/components/ui/Button.tsx:30
+    used_by_units: [home, about, services, projects, contact]
+    fields:
+      - {name: Button, type: "React component"}
+      - {name: SectionLabel, type: "React component"}
+      - {name: PhotoArea, type: "React component"}
+      - {name: ServiceCard, type: "React component"}
+      - {name: CertificationBadge, type: "React component"}
+      - {name: ContactForm, type: "React component"}
+    god_class: false
+    split_candidate: false
+    migration_strategy: copy
+    notes: "Reusable presentation components; ContactForm also owns lead submission."
+
+  - name: lead-persistence
+    kind: store
+    source_loc: src/lib/supabase.ts:7
+    used_by_units: [contact]
+    fields:
+      - {name: supabase, type: "SupabaseClient"}
+      - {name: Lead, type: "TypeScript type"}
+    god_class: false
+    split_candidate: false
+    migration_strategy: wrap
+    notes: "Browser persistence boundary for public lead creation."
+

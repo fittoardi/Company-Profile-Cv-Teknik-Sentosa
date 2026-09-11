@@ -1,0 +1,52 @@
+contracts:
+  - name: lead-insert
+    unit: contact
+    type: sdk
+    stability: frozen
+    source_loc: src/components/ContactForm.tsx:65
+    contract:
+      method: "Supabase INSERT"
+      path: "public.leads"
+      request: "name, company, need_type, optional capacity/location/phone/email/message"
+      response: "Supabase insert result; error object on failure"
+      error: "UI displays retry message and keeps submitted form values"
+      auth: "Supabase anon key with RLS INSERT policy"
+    target_contract:
+      method: "insert Lead into public.leads"
+      notes: "need_type must remain one of baru, servis, upgrade; optional empty fields are omitted."
+    semantic_divergence: []
+
+  - name: lead-notification
+    unit: contact
+    type: rest
+    stability: must_preserve
+    source_loc: supabase/migrations/20260911000000_lead_notification_webhook.sql:22
+    contract:
+      method: "POST"
+      path: "/functions/v1/lead-notification"
+      request: "JSON object containing record with the inserted lead fields"
+      response: "200 JSON on Resend success; 400 missing record; 500 missing configuration; Resend status on provider failure"
+      error: "Database insert remains independent of asynchronous email delivery"
+      auth: "Bearer service key supplied by database trigger"
+    target_contract:
+      method: "POST lead-notification with {record: LeadRow}"
+      notes: "Preserve asynchronous AFTER INSERT invocation and response/error meanings."
+    semantic_divergence: []
+
+  - name: whatsapp-contact
+    unit: contact
+    type: rest
+    stability: may_change
+    source_loc: src/pages/ContactPage.tsx:10
+    contract:
+      method: "GET"
+      path: "https://wa.me/{company.whatsapp}?text={encoded message}"
+      request: "Encoded consultation message"
+      response: "External WhatsApp conversation"
+      error: "Handled by external provider/browser"
+      auth: "None"
+    target_contract:
+      method: "Open WhatsApp link with encoded consultation message"
+      notes: "Keep international phone format and URL encoding."
+    semantic_divergence: []
+

@@ -1,0 +1,14 @@
+unit: contact
+side_effects:
+  - {source_loc: src/components/ContactForm.tsx:65, effect: "Insert lead payload into public.leads through Supabase.", must_preserve: true}
+  - {source_loc: src/pages/ContactPage.tsx:87, effect: "Open WhatsApp consultation link.", must_preserve: true}
+  - {source_loc: src/pages/ContactPage.tsx:101, effect: "Load embedded Google Maps location.", must_preserve: true}
+branches:
+  - {source_loc: src/components/ContactForm.tsx:39, condition: "name or company is empty", behavior: "show required-field error without submitting.", must_preserve: true}
+  - {source_loc: src/components/ContactForm.tsx:69, condition: "Supabase insert returns error", behavior: "show retry/error message and keep form data.", must_preserve: true}
+  - {source_loc: src/components/ContactForm.tsx:74, condition: "insert succeeds", behavior: "show success state and reset form.", must_preserve: true}
+error_paths:
+  - {source_loc: src/components/ContactForm.tsx:69, trigger: "Supabase insert error", outcome: "visible Indonesian error message.", contract: "no lead success state is shown.", must_preserve: true}
+concurrency:
+  model: async
+  tx_boundary: {source_loc: src/components/ContactForm.tsx:65, scope: "single Supabase lead insert; notification occurs asynchronously in database trigger.", isolation: "database default", must_preserve: true}

@@ -1,0 +1,8 @@
+unit: projects
+commit: false
+candidate_splits:
+  - id: src/pages/ProjectsPage.tsx:13-106
+    drivers: [concern_split]
+    rationale: "Portfolio filter controls, project cards, empty state, and contact CTA can change independently."
+    source_slice: {file: src/pages/ProjectsPage.tsx, lines: [13, 106]}
+

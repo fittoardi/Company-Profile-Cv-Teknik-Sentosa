@@ -1,0 +1,4 @@
+unit: projects
+bindings:
+  - {type: route-declaration, name: "#/proyek", source_loc: src/App.tsx:14, target: ProjectsPage, must_appear_in_target: true, notes: "Hash route dispatch in App."}
+runtime_config: []

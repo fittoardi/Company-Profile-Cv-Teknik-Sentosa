@@ -1,0 +1,11 @@
+unit: projects
+side_effects:
+  - {source_loc: src/pages/ProjectsPage.tsx:44, effect: "Sector chip changes local active filter and recalculates displayed projects.", must_preserve: true}
+  - {source_loc: src/pages/ProjectsPage.tsx:100, effect: "CTA navigates to the contact route.", must_preserve: true}
+branches:
+  - {source_loc: src/pages/ProjectsPage.tsx:16, condition: "active === 'Semua'", behavior: "show all projects; otherwise show projects matching the selected sector.", must_preserve: true}
+error_paths:
+  - {source_loc: src/pages/ProjectsPage.tsx:86, trigger: "selected sector has no projects", outcome: "show 'Belum ada proyek pada sektor ini.'", contract: "visible empty state", must_preserve: true}
+concurrency:
+  model: sync
+  tx_boundary: {source_loc: "", scope: "none", isolation: "", must_preserve: false}

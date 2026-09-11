@@ -12,7 +12,7 @@ export const company = {
   whatsapp: '6285608543495', // format internasional tanpa + atau spasi
   emergencyPhone: '+62 856-8543-495',
   emergencyWhatsapp: '6285608543495',
-  email: 'SentosaTeknikEngineering@g',
+  email: 'SentosaTeknikEngineering@gmail.com',
   address: 'JL. Raya Tlasih, No. 124, Tulungan, Tlasih Satu, Tlasih, Kec. Sidoarjo, Kabupaten Sidoarjo, Jawa Timur 61273',
   mapEmbed:
     'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.927485510727!2d112.62044429999999!3d-7.4732601999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e780a84192abc07%3A0x16edda9279bd2842!2sSentosa%20Teknik%20Engineering.%20CV!5e0!3m2!1sen!2sid!4v1789123349823!5m2!1sen!2sid',
@@ -195,29 +195,7 @@ export const testimonials = [
   },
 ];
 
-export const team = [
-  {
-    name: 'Ir. Hadi Nugroho',
-    role: 'Direktur Teknik',
-    credential: 'Insinyur mesin bersertifikat bejana tekan',
-    image:
-      'https://images.pexels.com/photos/19544217/pexels-photo-19544217.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-  },
-  {
-    name: 'Andi Wijaya, S.T.',
-    role: 'Manajer Fabrikasi',
-    credential: 'Welding inspector CSWIP',
-    image:
-      'https://images.pexels.com/photos/7565176/pexels-photo-7565176.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-  },
-  {
-    name: 'Rina Marlina, S.T.',
-    role: 'Manajer Perawatan',
-    credential: 'Spesialis K3 bejana tekan',
-    image:
-      'https://images.pexels.com/photos/1108101/pexels-photo-1108101.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
-  },
-];
+// 
 
 export const navItems = [
   { label: 'Beranda', path: '/' },

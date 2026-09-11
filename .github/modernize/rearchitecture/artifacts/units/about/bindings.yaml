@@ -1,0 +1,4 @@
+unit: about
+bindings:
+  - {type: route-declaration, name: "#/tentang", source_loc: src/App.tsx:10, target: AboutPage, must_appear_in_target: true, notes: "Hash route dispatch in App."}
+runtime_config: []

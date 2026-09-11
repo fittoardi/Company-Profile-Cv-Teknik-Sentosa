@@ -1,0 +1,11 @@
+unit: contact
+commit: false
+candidate_splits:
+  - id: src/pages/ContactPage.tsx:7-121
+    drivers: [concern_split, protocol_split]
+    rationale: "Contact information, external communication links, map embedding, and lead form persistence are distinct concerns with different failure behavior."
+    source_slice: {file: src/pages/ContactPage.tsx, lines: [7, 121]}
+  - id: src/components/ContactForm.tsx:34-216
+    drivers: [concern_split, execution_model_split]
+    rationale: "Local form state and validation are synchronous UI concerns while Supabase submission and notification feedback are asynchronous persistence concerns."
+    source_slice: {file: src/components/ContactForm.tsx, lines: [34, 216]}

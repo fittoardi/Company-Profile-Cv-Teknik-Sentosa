@@ -1,0 +1,8 @@
+unit: about
+commit: false
+candidate_splits:
+  - id: src/pages/AboutPage.tsx:13-175
+    drivers: [concern_split]
+    rationale: "Company story, statistics, reasons-to-choose content, certification display, and CTA are separate presentation concerns."
+    source_slice: {file: src/pages/AboutPage.tsx, lines: [13, 175]}
+

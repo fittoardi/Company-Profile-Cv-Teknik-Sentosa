@@ -1,0 +1,8 @@
+unit: services
+side_effects:
+  - {source_loc: src/pages/ServicesPage.tsx:120, effect: "CTA navigates to the contact route.", must_preserve: true}
+branches: []
+error_paths: []
+concurrency:
+  model: sync
+  tx_boundary: {source_loc: "", scope: "none", isolation: "", must_preserve: false}

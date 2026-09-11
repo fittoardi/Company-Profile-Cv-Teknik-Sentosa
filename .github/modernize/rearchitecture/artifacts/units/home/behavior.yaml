@@ -1,0 +1,8 @@
+unit: home
+side_effects:
+  - {source_loc: src/pages/HomePage.tsx:15, effect: "CTA buttons navigate to contact, services, about, and projects routes.", must_preserve: true}
+branches: []
+error_paths: []
+concurrency:
+  model: sync
+  tx_boundary: {source_loc: "", scope: "none", isolation: "", must_preserve: false}

@@ -1,0 +1,2 @@
+flows: []
+notes: "No implicit state flow between page units was identified. Contact form state is local to ContactForm; route state is owned by App/useRoute."
