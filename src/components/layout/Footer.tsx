@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Download } from 'lucide-react';
+import { MapPin, Phone, Mail } from 'lucide-react';
 import { company, navItems } from '@/lib/constants';
 
 type Props = {
@@ -9,17 +9,15 @@ export function Footer({ onNavigate }: Props) {
   return (
     <footer className="border-t border-line bg-navy text-white">
       <div className="mx-auto max-w-8xl px-5 py-14 lg:px-10">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 lg:grid-cols-3">
           {/* Tentang singkat */}
-          <div className="lg:col-span-1">
+          <div>
             <div className="flex items-center gap-2">
-              <span className="flex h-9 w-9 items-center justify-center bg-amber text-amber-dark">
-                <span className="text-sm font-bold">SB</span>
-              </span>
+              <img src="assets/Logo.png" alt={company.name} className="h-8 w-8" />
               <span className="text-base font-semibold">{company.name}</span>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-white/70">
-              Spesialis pembuatan, perawatan, dan upgrade steam boiler industri bersertifikat. Melayani sektor manufaktur, F&B, tekstil, kelapa sawit, dan energi.
+              Spesialis pembuatan, perawatan, dan upgrade steam boiler industri bersertifikat. Melayani sektor manufaktur, F&amp;B, tekstil, kelapa sawit, dan energi.
             </p>
           </div>
 
@@ -62,29 +60,13 @@ export function Footer({ onNavigate }: Props) {
               </li>
             </ul>
           </div>
-
-          {/* Brosur */}
-          <div>
-            <p className="label-caps text-white/50">Profil Perusahaan</p>
-            <p className="mt-4 text-sm text-white/70">
-              Unduh brosur lengkap berisi spesifikasi layanan, sertifikasi, dan portofolio.
-            </p>
-            <a
-              href={company.brochureUrl}
-              download
-              className="mt-4 inline-flex items-center gap-2 border border-white/30 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-amber hover:text-amber-dark hover:border-amber"
-            >
-              <Download size={16} />
-              Unduh Brosur PDF
-            </a>
-          </div>
         </div>
 
         <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/50 sm:flex-row sm:items-center">
           <p>
             © {new Date().getFullYear()} {company.legalName}. Hak cipta dilindungi.
           </p>
-          <p>Bejana tekan — dirancang & difabrikasi sesuai SNI & K3 Kemnaker</p>
+          <p>Bejana tekan — dirancang &amp; difabrikasi sesuai SNI &amp; K3 Kemnaker</p>
         </div>
       </div>
     </footer>

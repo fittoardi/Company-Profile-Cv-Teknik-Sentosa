@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, MessageCircle, Siren, Download } from 'lucide-react';
+import { MapPin, Phone, Mail, MessageCircle, Siren } from 'lucide-react';
 import { PageShell } from '@/components/PageShell';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 import { ContactForm } from '@/components/ContactForm';
@@ -21,7 +21,7 @@ export function ContactPage() {
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-ink-muted">
             Isi formulir di bawah untuk kebutuhan pembuatan, perawatan, atau upgrade boiler.
-            Tim teknik akan menghubungi Anda dalam 1×24 jam kerja.
+            Tim teknik akan menghubungi Anda dalam 1 x 24 jam kerja.
           </p>
         </div>
       </section>
@@ -82,7 +82,7 @@ export function ContactPage() {
             </ul>
 
             {/* Aksi cepat */}
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="mt-10">
               <a
                 href={waLink}
                 target="_blank"
@@ -91,14 +91,6 @@ export function ContactPage() {
               >
                 <MessageCircle size={16} />
                 Chat WhatsApp
-              </a>
-              <a
-                href={company.brochureUrl}
-                download
-                className="inline-flex items-center gap-2 border border-navy px-5 py-2.5 text-sm font-semibold text-navy transition-colors hover:bg-navy hover:text-white"
-              >
-                <Download size={16} />
-                Unduh Brosur
               </a>
             </div>
 

@@ -39,12 +39,10 @@ export function Navbar({ currentPath, onNavigate }: Props) {
           className="flex items-center gap-2 text-left"
           aria-label={company.name}
         >
-          <span className="flex h-9 w-9 items-center justify-center bg-navy text-white">
-            <span className="text-sm font-bold">SB</span>
-          </span>
+          <img src="assets/Logo.png" alt={company.name} className="h-8 w-8" />
           <span className="flex flex-col leading-none">
             <span className="text-base font-semibold text-navy">{company.name}</span>
-            <span className="text-[11px] text-ink-muted">Steam Boiler Industri</span>
+            <span className="text-[11px] text-ink-muted">CV Sentosa Teknik Engineering</span>
           </span>
         </button>
 

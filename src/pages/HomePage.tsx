@@ -6,7 +6,7 @@ import { ServiceCard } from '@/components/ui/ServiceCard';
 import { CertificationBadge } from '@/components/ui/CertificationBadge';
 import { PhotoArea } from '@/components/ui/PhotoArea';
 import { ContactForm } from '@/components/ContactForm';
-import { company, stats, services, certifications, projects, testimonials, team, images } from '@/lib/constants';
+import { company, stats, services, certifications, projects, testimonials, images } from '@/lib/constants';
 
 type Props = {
   onNavigate: (path: string) => void;
@@ -222,7 +222,7 @@ export function HomePage({ onNavigate }: Props) {
         </div>
       </section>
 
-      {/* ===== TIM ===== */}
+      {/* ===== TIM =====
       <section className="border-t border-line bg-surface">
         <div className="mx-auto max-w-8xl px-5 py-20 lg:px-10 lg:py-28">
           <SectionLabel label="KEAHLIAN">Tim teknik</SectionLabel>
@@ -242,7 +242,7 @@ export function HomePage({ onNavigate }: Props) {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ===== CTA AKHIR + FORM KONTAK ===== */}
       <section className="bg-navy text-white">

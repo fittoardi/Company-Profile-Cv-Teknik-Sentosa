@@ -4,19 +4,19 @@
 */
 
 export const company = {
-  name: 'Sentra Boiler Teknik',
-  legalName: 'PT. Sentra Boiler Teknik',
+  name: 'Sentosa Teknik Engineering',
+  legalName: 'CV Sentosa Teknik Engineering',
   tagline: 'Pembuatan, Perawatan & Upgrade Steam Boiler Industri',
   establishedYear: 2010,
-  phone: '+62 812 0000 0000',
-  whatsapp: '6281200000000', // format internasional tanpa + atau spasi
-  emergencyPhone: '+62 812 1111 1111',
-  emergencyWhatsapp: '6281211111111',
-  email: 'info@scrtrboiler.co.id',
-  address: 'Jl. Industri Raya No. 88, Kawasan Industri Pulogadung, Jakarta Timur 13920',
+  phone: '+62 856-8543-495',
+  whatsapp: '6285608543495', // format internasional tanpa + atau spasi
+  emergencyPhone: '+62 856-8543-495',
+  emergencyWhatsapp: '6285608543495',
+  email: 'SentosaTeknikEngineering@g',
+  address: 'JL. Raya Tlasih, No. 124, Tulungan, Tlasih Satu, Tlasih, Kec. Sidoarjo, Kabupaten Sidoarjo, Jawa Timur 61273',
   mapEmbed:
-    'https://www.google.com/maps?q=Pulogadung+Jakarta+Timur&output=embed',
-  brochureUrl: '/company-profile.pdf', // ganti dengan URL PDF brosur asli
+    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.927485510727!2d112.62044429999999!3d-7.4732601999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e780a84192abc07%3A0x16edda9279bd2842!2sSentosa%20Teknik%20Engineering.%20CV!5e0!3m2!1sen!2sid!4v1789123349823!5m2!1sen!2sid',
+  // brochureUrl: '/company-profile.pdf', // ganti dengan URL PDF brosur asli
 };
 
 export const stats = [
