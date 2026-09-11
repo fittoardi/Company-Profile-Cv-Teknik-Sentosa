@@ -32,15 +32,7 @@ npx supabase functions deploy lead-notification --no-verify-jwt
 - `TO_EMAIL` = `goodhooman061202@gmail.com` (sudah default di code)
 - `FROM_EMAIL` = email pengirim (mis. `noreply@sentrateknik.co.id`, sudah default)
 
-### 4. Atur Vault (service role key untuk webhook)
-Buka SQL Editor, jalankan:
-```sql
-INSERT INTO vault.secrets (id, secret, description)
-VALUES (gen_random_uuid(), 'SUPABASE_SECRET_KEY=your_supabase_secret_key', 'Supabase service role key for webhook')
-ON CONFLICT DO NOTHING;
-```
-
-### 5. Uji
+### 4. Uji
 1. Buka halaman kontak (`/kontak`)
 2. Isi form
 3. Klik "Kirim Permintaan Survei"
