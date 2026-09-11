@@ -1,4 +1,3 @@
-/*
 # Create leads table for boiler company contact/survey requests
 
 1. New Tables
