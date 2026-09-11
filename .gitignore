@@ -21,3 +21,6 @@ dist-ssr
 *.sln
 *.sw?
 .env
+
+# Local Supabase testing script may contain credentials
+test-insert.cjs
